@@ -11,7 +11,7 @@
 // TODO: This would be the second time importing in rails. prepend this line
 // via gulp.
 
-@import ../../core/_normalize
+@import core/_normalize
 
 // Variables
 // ---------
@@ -56,12 +56,12 @@ $default-font-size: $base-font-size  // TODO: Why?
 // Lowest-level styling meant to be inherited by components.
 //
 
-@import ../../core/_index
+@import core/_index
 
 // Grid
 
-=container($fluid: false)
-  +container-default($fluid)
+=container($args...)
+  +container-default($args...)
 
 // Typography
 // ----------
@@ -75,8 +75,8 @@ pre
 =code
   +code-default
 
-=p($content-optimized: false)
-  +p-default($content-optimized)
+=p($args...)
+  +p-default($args...)
 
 =page-heading
   +page-heading-default
@@ -137,8 +137,8 @@ h6
 html
   +type
 
-=list($style: 'none')
-  +list-default($style)
+=list($args...)
+  +list-default($args...)
 
 //
 // Base Components
@@ -147,22 +147,22 @@ html
 // used again in other parts of the core library.
 //
 
-@import ../../core/_base_components
+@import core/_base_components
 
 // Alerts
 // ------
 
-=alert
-  +alert-default
+=alert($args...)
+  +alert-default($args...)
 
 // Buttons
 // -------
 
-=button($background-color: map-get($white, dark), $size: 1)
-  +button-default($background-color, $size)
+=button($args...)
+  +button-default($args...)
 
-=button-group($color: map-get($white, dark), $size: 1)
-  +button-group-default($color, $size)
+=button-group($args...)
+  +button-group-default($args...)
 
 // HR
 // --
@@ -185,14 +185,14 @@ hr
 // Labels
 // ------
 
-=label($background-color: map-get($colors, blue))
-  +label-default($background-color)
+=label($args...)
+  +label-default($args...)
 
 // Navigation
 // ----------
 
-=navbar($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
-  +navbar-default($layout, $background-color, $breakpoint, $collapse, $fixed)
+=navbar($args...)
+  +navbar-default($args...)
 
 =dropdown_menu
   +dropdown_menu-default
@@ -200,8 +200,8 @@ hr
 // Table
 // -----
 
-=table($blank: false, $zebra: false, $hover: false)
-  +table-default($blank, $zebra, $hover)
+=table($args...)
+  +table-default($args...)
 
 //
 // Dependent Components
@@ -210,16 +210,16 @@ hr
 // componenets that have already been styled by the theme.
 //
 
-@import ../../core/_dependent_components
+@import core/_dependent_components
 
 // Forms
 // -----
 
-=form($layout: 'none')
-  +form-default($layout)
+=form($args...)
+  +form-default($args...)
 
-=form_group($layout: 'vertical')
-  +form_group-default($layout)
+=form_group($args...)
+  +form_group-default($args...)
 
 // Growls
 // ------
@@ -236,8 +236,8 @@ hr
 // Pagination
 // ----------
 
-=pagination($background: map-get($white, darker))
-  +pagination-default($background)
+=pagination($args...)
+  +pagination-default($args...)
 
 // Tabs
 // ----
@@ -254,5 +254,5 @@ hr
 =tooltip_trigger
   +tooltip_trigger-default
 
-@import ../../core/_direct-apply.sass
-@import ../../vendor/_index
+@import core/_direct-apply.sass
+@import vendor/_index
