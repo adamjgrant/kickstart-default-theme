@@ -1,0 +1,258 @@
+//
+// Theme: Default
+// ==============
+// Theme files wrap Kickstart's mixins into duplicate mixins without the
+// "-default". This allows theme artists to insert their own styles by
+// extending the default ones. Because the default theme just does direct
+// assignment to the final namespaces, it overrides without actually
+// changing anything.
+//
+
+// TODO: This would be the second time importing in rails. prepend this line
+// via gulp.
+
+@import ../core/_normalize
+
+// Variables
+// ---------
+
+// Grayscale
+$white: (dark: #F7F7F7, darker: #DDD, darkest: #CCC)
+$gray:  (lightest: #BBB, lighter: #AAA, light: #999, dark: #777, darker: #666, darkest: #555)
+$black: (lightest: #444, lighter: #333, light: #222)
+
+// Rainbow
+$colors: (red: #CA3518, orange: darkorange, yellow: #ffe312, green: #58AA00, blue: cornflowerblue, violet: darkmagenta)
+
+// Vendor libraries
+@import url(//fonts.googleapis.com/css?family=Lato:300,400,700,400italic)
+
+// Ten point design variables
+// --------------------------
+// Modifying just these ten variables will take care of 90% of your theme
+
+$primary-color:       map-get($colors, blue)
+$secondary-color:     map-get($white, darker)
+$space:               25px
+$heading-font-family: 'museo-sans', 'Lato', helvetica neue, sans-serif
+$body-font-family:    'museo-sans', 'Lato', helvetica neue, sans-serif
+$mono-font-family:    'ubuntu-mono', monospace
+$base-font-size:      16px
+$default-font-color:  map-get($gray, darkest)
+$default-line-height: 1.4rem
+
+// --------------------------
+
+$scalingFactor: 0.2vw
+
+$rootElement: (paddingV: 5px, paddingH: 12px, border-radius: 3px)
+
+$default-font: $body-font-family
+$default-font-size: $base-font-size  // TODO: Why?
+
+//
+// Core styling
+// ------------
+// Lowest-level styling meant to be inherited by components.
+//
+
+@import ../core/_index
+
+// Grid
+
+=container($fluid: false)
+  +container-default($fluid)
+
+// Typography
+// ----------
+
+=pre
+  +pre-default
+
+pre
+  +pre
+
+=code
+  +code-default
+
+=p($content-optimized: false)
+  +p-default($content-optimized)
+
+=page-heading
+  +page-heading-default
+  h1, h2, h3, h4, h5, h6
+    // Styles should go here.
+
+=hero
+  +hero-default
+
+=heading-xxl
+  +heading-xxl-default
+
+=heading-xl
+  +heading-xl-default
+
+=heading-lg
+  +heading-lg-default
+
+=heading-md
+  +heading-md-default
+
+=heading-rg
+  +heading-rg-default
+
+=heading-sm
+  +heading-sm-default
+
+=heading-xs
+  +heading-xs-default
+
+=heading-xxs
+  +heading-xxs-default
+
+h1, h2, h3, h4, h5, h6
+  font-family: $heading-font-family
+
+h1
+  +heading-lg
+
+h2
+  +heading-md
+
+h3
+  +heading-rg
+
+h4
+  +heading-sm
+
+h5
+  +heading-xs
+
+h6
+  +heading-xxs
+
+=type
+  +type-default
+
+html
+  +type
+
+=list($style: 'none')
+  +list-default($style)
+
+//
+// Base Components
+// ===============
+// Base components get imported first so they can be custom themed and
+// used again in other parts of the core library.
+//
+
+@import ../core/_base_components
+
+// Alerts
+// ------
+
+=alert
+  +alert-default
+
+// Buttons
+// -------
+
+=button($background-color: map-get($white, dark), $size: 1)
+  +button-default($background-color, $size)
+
+=button-group($color: map-get($white, dark), $size: 1)
+  +button-group-default($color, $size)
+
+// HR
+// --
+
+=hr
+  +hr-default
+
+hr
+  +hr
+
+// Images
+// ------
+
+=thumbnail-content
+  +thumbnail-content-default
+
+=thumbnail
+  +thumbnail-default
+
+// Labels
+// ------
+
+=label($background-color: map-get($colors, blue))
+  +label-default($background-color)
+
+// Navigation
+// ----------
+
+=navbar($layout: 'none', $background-color: map-get($white, dark), $breakpoint: $tablet, $collapse: false, $fixed: false)
+  +navbar-default($layout, $background-color, $breakpoint, $collapse, $fixed)
+
+=dropdown_menu
+  +dropdown_menu-default
+
+// Table
+// -----
+
+=table($blank: false, $zebra: false, $hover: false)
+  +table-default($blank, $zebra, $hover)
+
+//
+// Dependent Components
+// ====================
+// Dependent components keep code DRY by reusing core and base
+// componenets that have already been styled by the theme.
+//
+
+@import ../core/_dependent_components
+
+// Forms
+// -----
+
+=form($layout: 'none')
+  +form-default($layout)
+
+=form_group($layout: 'vertical')
+  +form_group-default($layout)
+
+// Growls
+// ------
+
+=growl
+  +growl-default
+
+// Modals
+// ------
+
+=modal()
+  +modal-default()
+
+// Pagination
+// ----------
+
+=pagination($background: map-get($white, darker))
+  +pagination-default($background)
+
+// Tabs
+// ----
+
+=tabs
+  +tabs-default
+
+=tab_pane_container
+  +tab_pane_container-default
+
+// Tooltips
+// --------
+
+=tooltip_trigger
+  +tooltip_trigger-default
+
+@import ../core/_direct-apply.sass
+@import ../vendor/_index
