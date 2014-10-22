@@ -11,7 +11,7 @@
 // TODO: This would be the second time importing in rails. prepend this line
 // via gulp.
 
-@import ../core/_normalize
+@import ../../core/_normalize
 
 // Variables
 // ---------
@@ -56,7 +56,7 @@ $default-font-size: $base-font-size  // TODO: Why?
 // Lowest-level styling meant to be inherited by components.
 //
 
-@import ../core/_index
+@import ../../core/_index
 
 // Grid
 
@@ -147,7 +147,7 @@ html
 // used again in other parts of the core library.
 //
 
-@import ../core/_base_components
+@import ../../core/_base_components
 
 // Alerts
 // ------
@@ -210,7 +210,7 @@ hr
 // componenets that have already been styled by the theme.
 //
 
-@import ../core/_dependent_components
+@import ../../core/_dependent_components
 
 // Forms
 // -----
@@ -254,5 +254,5 @@ hr
 =tooltip_trigger
   +tooltip_trigger-default
 
-@import ../core/_direct-apply.sass
-@import ../vendor/_index
+@import ../../core/_direct-apply.sass
+@import ../../vendor/_index
